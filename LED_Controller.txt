@@ -1,0 +1,251 @@
+void setup() { 
+  Serial.begin(9600); 
+  pinMode(LED_BUILTIN, OUTPUT);
+  pinMode(2, OUTPUT);
+  pinMode(3, OUTPUT);
+  pinMode(4, OUTPUT);
+  pinMode(5, OUTPUT);
+  pinMode(6, OUTPUT);
+  pinMode(7, OUTPUT);
+  pinMode(8, OUTPUT);
+  pinMode(9, OUTPUT);
+  pinMode(10, OUTPUT);
+  pinMode(11, OUTPUT);
+  pinMode(12, OUTPUT);
+} 
+ 
+void loop() 
+{ 
+  int inByte = 0; 
+  if (Serial.available()) 
+   { 
+      String ard = Serial.readString();
+      if (ard == "led_on")
+        {
+          Serial.print("Led is on");
+          digitalWrite(LED_BUILTIN, HIGH);
+        }
+      else if (ard == "led_off")
+        {
+          Serial.print("Led is off");
+          digitalWrite(LED_BUILTIN, LOW);
+        } 
+      else if (ard == "D2_on")
+        {
+          Serial.print("D2=1");
+          digitalWrite(2, HIGH);
+        }
+      else if (ard == "D2_off")
+         {
+          Serial.print("D2=0");
+          digitalWrite(2, LOW);
+          }  
+      else if (ard == "D3_on")
+        {
+          Serial.print("D3=1");
+          digitalWrite(3, HIGH);
+        }
+      else if (ard == "D3_off")
+         {
+          Serial.print("D3=0");
+          digitalWrite(3, LOW);
+          }  
+      else if (ard == "D4_on")
+        {
+          Serial.print("D4=1");
+          digitalWrite(4, HIGH);
+        }
+      else if (ard == "D4_off")
+         {
+          Serial.print("D4=0");
+          digitalWrite(4, LOW);
+          } 
+      else if (ard == "D5_on")
+        {
+          Serial.print("D5=1");
+          digitalWrite(5, HIGH);
+        }
+      else if (ard == "D5_off")
+         {
+          Serial.print("D5=0");
+          digitalWrite(5, LOW);
+          } 
+      else if (ard == "D6_on")
+        {
+          Serial.print("D6=1");
+          digitalWrite(6, HIGH);
+        }
+      else if (ard == "D6_off")
+         {
+          Serial.print("D6=0");
+          digitalWrite(6, LOW);
+          } 
+      else if (ard == "D7_on")
+        {
+          Serial.print("D7=1");
+          digitalWrite(7, HIGH);
+        }
+      else if (ard == "D7_off")
+         {
+          Serial.print("D7=0");
+          digitalWrite(7, LOW);
+          } 
+      else if (ard == "D8_on")
+        {
+          Serial.print("D8=1");
+          digitalWrite(8, HIGH);
+        }
+      else if (ard == "D8_off")
+         {
+          Serial.print("D8=0");
+          digitalWrite(8, LOW);
+          } 
+      else if (ard == "D9_on")
+        {
+          Serial.print("D9=1");
+          digitalWrite(9, HIGH);
+        }
+      else if (ard == "D9_off")
+         {
+          Serial.print("D9=0");
+          digitalWrite(9, LOW);
+          } 
+      else if (ard == "D10_on")
+        {
+          Serial.print("D10=1");
+          digitalWrite(10, HIGH);
+        }
+      else if (ard == "D10_off")
+         {
+          Serial.print("D10=0");
+          digitalWrite(10, LOW);
+          }  
+      else if (ard == "D11_on")
+        {
+          Serial.print("D11=1");
+          digitalWrite(11, HIGH);
+        }
+      else if (ard == "D11_off")
+         {
+          Serial.print("D11=0");
+          digitalWrite(11, LOW);
+          }  
+      else if (ard == "D12_on")
+        {
+          Serial.print("D12=1");
+          digitalWrite(12, HIGH);
+        }
+      else if (ard == "D12_off")
+         {
+          Serial.print("D12=0");
+          digitalWrite(12, LOW);
+          }
+      else if (ard == "All_on")
+         {
+          Serial.print("All_on");
+          digitalWrite(2, HIGH);
+          delay(250);
+          digitalWrite(4, HIGH);
+          delay(250);
+          digitalWrite(5, HIGH);
+          delay(250);
+          digitalWrite(6, HIGH);
+          delay(250);
+          digitalWrite(7, HIGH);
+          delay(250);
+          digitalWrite(9, HIGH);
+          delay(250);
+          digitalWrite(10, HIGH);
+          delay(250);
+          digitalWrite(12, HIGH);
+          }
+     else if (ard == "All_off")
+         {
+          Serial.print("All_off");
+          digitalWrite(2, LOW);
+          delay(250);
+          digitalWrite(4, LOW);
+          delay(250);
+          digitalWrite(5, LOW);
+          delay(250);
+          digitalWrite(6, LOW);
+          delay(250);
+          digitalWrite(7, LOW);
+          delay(250);
+          digitalWrite(9, LOW);
+          delay(250);
+          digitalWrite(10, LOW);
+          delay(250);
+          digitalWrite(12, LOW);
+          }
+      else if (ard == "Anode")
+         {
+          Serial.print("Anode");
+          digitalWrite(3, HIGH);
+          delay(250);
+          digitalWrite(2, HIGH);
+          delay(250);
+          digitalWrite(4, HIGH);
+          delay(250);
+          digitalWrite(5, HIGH);
+          delay(250);
+          digitalWrite(6, HIGH);
+          delay(250);
+          digitalWrite(7, HIGH);
+          delay(250);
+          digitalWrite(9, HIGH);
+          delay(250);
+          digitalWrite(10, HIGH);
+          delay(250);
+          digitalWrite(12, HIGH);
+          }  
+      else if (ard == "Cathode")
+        {
+          Serial.print("Cathode");
+          digitalWrite(3, LOW);
+          delay(250);
+          digitalWrite(2, HIGH);
+          delay(250);
+          digitalWrite(4, HIGH);
+          delay(250);
+          digitalWrite(5, HIGH);
+          delay(250);
+          digitalWrite(6, HIGH);
+          delay(250);
+          digitalWrite(7, HIGH);
+          delay(250);
+          digitalWrite(9, HIGH);
+          delay(250);
+          digitalWrite(10, HIGH);
+          delay(250);
+          digitalWrite(12, HIGH);
+        } 
+        else if (ard == "zero")
+         {
+          Serial.print("zero");
+          digitalWrite(2, LOW);
+          delay(250);
+          digitalWrite(3, LOW);
+          delay(250);
+          digitalWrite(4, LOW);
+          delay(250);
+          digitalWrite(5, LOW);
+          delay(250);
+          digitalWrite(6, LOW);
+          delay(250);
+          digitalWrite(7, LOW);
+          delay(250);
+          digitalWrite(9, LOW);
+          delay(250);
+          digitalWrite(10, LOW);
+          delay(250);
+          digitalWrite(12, LOW);
+          }
+	    else 
+        {
+          Serial.print("Wrong command");
+        } 
+       		Serial.flush();
+   }
+
+}
