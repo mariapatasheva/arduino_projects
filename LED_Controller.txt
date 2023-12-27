@@ -260,7 +260,7 @@ void loop()
           delay(250);
           digitalWrite(4, LOW);
           delay(250);
-          digitalWrite(6, LOW);
+          digitalWrite(7, LOW);
           delay(250);
           digitalWrite(12, HIGH);
           delay(250);
@@ -270,7 +270,7 @@ void loop()
           delay(250);
           digitalWrite(4, HIGH);
           delay(250);
-          digitalWrite(6, HIGH);
+          digitalWrite(7, HIGH);
           delay(1000);
           digitalWrite(12, LOW);
           delay(250);
