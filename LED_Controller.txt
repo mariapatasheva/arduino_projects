@@ -441,6 +441,30 @@ void loop()
           digitalWrite(5, HIGH);
           delay(250);
           }
+       else if (ard == "Super_on")
+         {
+          Serial.print("All_on");
+          digitalWrite(12, HIGH);
+          digitalWrite(2, HIGH);
+          digitalWrite(6, HIGH);
+          digitalWrite(7, HIGH);
+          digitalWrite(4, HIGH);
+          digitalWrite(5, HIGH);
+          digitalWrite(9, HIGH);
+          digitalWrite(10, HIGH);
+          }
+     else if (ard == "Super_off")
+         {
+          Serial.print("All_off");
+          digitalWrite(12, LOW);
+          digitalWrite(2, LOW);
+          digitalWrite(6, LOW);
+          digitalWrite(7, LOW);
+          digitalWrite(4, LOW);
+          digitalWrite(5, LOW);
+          digitalWrite(9, LOW);
+          digitalWrite(10, LOW);
+          }
 	    else 
         {
           Serial.print("Wrong command");
