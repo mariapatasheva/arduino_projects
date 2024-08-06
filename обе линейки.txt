@@ -1,0 +1,78 @@
+bool new_clock = 0;
+bool old_clock = 1;
+int i = 0;
+int n = 0;
+int32_t data = 4278190080;
+int32_t data_20 = 0;
+double data_dbl = 0.0;
+String SerialData = "";
+String sign = "";
+String unit = "";
+
+volatile long counter = 0;
+unsigned long counter_nm = 0;
+
+void setup() {
+
+  Serial.begin(9600); 
+  Serial.println ("");
+
+  pinMode(A1, INPUT);
+  ACSR |= (1 << ACBG);  // подключаем ИОН ко входу AIN0 (D6)
+
+  pinMode(2, INPUT);
+  pinMode(3, INPUT);
+  attachInterrupt(0, btnIsr, CHANGE);
+  attachInterrupt(1, btnIsr, CHANGE);
+}
+
+void btnIsr() {
+  counter++;
+}
+
+void loop() {
+  if ((ACSR & 0x20) == 0x20) {  // если бит ACO регистра ACSR равен 1
+    new_clock = 0;
+    old_clock = 0;
+  } else {
+    new_clock = 1;
+     if (new_clock > old_clock) {
+        if (analogRead(A1) > 250) {
+          bitSet(data, i);
+        } else {
+          bitClear(data, i);
+        }
+         i++;
+         old_clock = 1;
+      }
+  }
+
+  if (i == 24) {  // если пришла вся посылка
+    data_20 = data & 0xFFFFF; // из 32 разрядов берем первые 20
+    data_dbl = data_20;
+    if (bitRead(data, 23)) {  // определение единицы измерения. Проверка на единицу 23 бита
+      data_dbl = data_dbl / 2000;
+      SerialData = String(data_dbl, 4);
+      unit = String(" inch");
+    } else {
+      data_dbl = data_dbl / 100;
+      SerialData = String(data_dbl, 2);
+      unit = String(" mm");
+    }
+
+    if (bitRead(data, 20)) {  // определение знака. Проверка на единицу 20 бита
+      sign = "- ";
+    } else {
+      sign = "";
+    }
+
+    Serial.println ("Result: " + sign + SerialData + unit);  // вывод результата
+     i = 0;
+     int32_t data = 4278190080;
+  }
+
+  counter_nm = counter * 100;
+  Serial.println("Пройденное расстояние: " + String(counter_nm) + " nm");
+  delay(1000);
+
+}
