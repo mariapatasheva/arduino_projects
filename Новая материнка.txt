@@ -218,8 +218,10 @@ void loop()
           digitalWrite(A1, HIGH);
           delay(250);
           digitalWrite(A0, HIGH);
-          delay(1000);
+          delay(250);
           digitalWrite(13, HIGH);
+          delay(500);
+          digitalWrite(3, HIGH);
           }
 
      else if (ard == "All_off")
@@ -252,77 +254,80 @@ void loop()
           digitalWrite(A1, LOW);
           delay(250);
           digitalWrite(A0, LOW);
-          delay(1000);
+          delay(250);
           digitalWrite(13, LOW);
-
+          delay(500);
+          digitalWrite(3, LOW);
+          }
+          
       else if (ard == "Anode")
          {
           Serial.print("Anode");
           digitalWrite(2, HIGH);
-          delay(250);
+          //delay(250);
           digitalWrite(3, HIGH);
-          delay(250);
+          //delay(250);
           digitalWrite(4, HIGH);
-          delay(250);
+          //delay(250);
           digitalWrite(5, HIGH);
-          delay(250);
+          //delay(250);
           digitalWrite(8, HIGH);
-          delay(250);
+          //delay(250);
           digitalWrite(9, HIGH);
-          delay(250);
+          //delay(250);
           digitalWrite(10, HIGH);
-          delay(250);
+          //delay(250);
           digitalWrite(11, HIGH);
-          delay(250);
+          //delay(250);
           digitalWrite(12, HIGH);
-          delay(250);
+          //delay(250);
           digitalWrite(13, HIGH);
-          delay(250);
+          //delay(250);
           digitalWrite(A0, HIGH);
-          delay(250);
+          //delay(250);
           digitalWrite(A1, HIGH);
-          delay(250);
+          //delay(250);
           digitalWrite(A2, HIGH);
-          delay(250);
+          //delay(250);
           digitalWrite(A3, HIGH);
-          delay(250);
+          //delay(250);
           digitalWrite(A4, HIGH);
-          delay(250);
+          //delay(250);
           digitalWrite(A5, HIGH);
           }  
       else if (ard == "Cathode")
         {
           Serial.print("Cathode");
           digitalWrite(2, LOW);
-          delay(250);
+          //delay(250);
           digitalWrite(3, HIGH);
-          delay(250);
+          //delay(250);
           digitalWrite(4, HIGH);
-          delay(250);
+          //delay(250);
           digitalWrite(5, HIGH);
-          delay(250);
+          //delay(250);
           digitalWrite(8, HIGH);
-          delay(250);
+          //delay(250);
           digitalWrite(9, HIGH);
-          delay(250);
+          //delay(250);
           digitalWrite(10, HIGH);
-          delay(250);
+          //delay(250);
           digitalWrite(11, HIGH);
-          delay(250);
+          //delay(250);
           digitalWrite(12, HIGH);
-          delay(250);
+          //delay(250);
           digitalWrite(13, HIGH);
-          delay(250);
+          //delay(250);
           digitalWrite(A0, HIGH);
-          delay(250);
+          //delay(250);
           digitalWrite(A1, HIGH);
-          delay(250);
+          //delay(250);
           digitalWrite(A2, HIGH);
-          delay(250);
+          //delay(250);
           digitalWrite(A3, HIGH);
-          delay(250);
+          //delay(250);
           digitalWrite(A4, HIGH);
-          delay(250);
+          //delay(250);
           digitalWrite(A5, HIGH);
         } 
         else if (ard == "zero")
@@ -383,12 +388,11 @@ void loop()
           digitalWrite(A4, LOW);
           digitalWrite(A5, LOW);
           }
-	    else 
+      else 
         {
           Serial.print("Wrong command");
         } 
-       		Serial.flush();
+          Serial.flush();
    }
 
 }
-
